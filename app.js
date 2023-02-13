@@ -55,6 +55,5 @@ function saveBooks(e) {
 }
 
 document.getElementById('myForm').addEventListener('submit', saveBooks);
-// const targetBody = document.getElementById('libraryBooks');
 
 fetchLibrary();
