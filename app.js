@@ -1,59 +1,66 @@
 function fetchLibrary() {
-  const getBooks = JSON.parse(localStorage.getItem('books'));
-  const libraryBooks = document.getElementById('libraryBooks');
+  const getBooks = JSON.parse(localStorage.getItem('books'))
+  const libraryBooks = document.getElementById('libraryBooks')
 
-  libraryBooks.innerHTML = '';
+  libraryBooks.innerHTML = ''
 
   for (let i = 0; i < getBooks.length; i += 1) {
-    const { name } = getBooks[i];
-    const { title } = getBooks[i];
-
-    libraryBooks.innerHTML += `<p>${name}</p>
-                               <p>${title}</p>   
-                               <button onclick="deleteBook(\'${title}\')">Remove</button>
-                               <hr>`;
+    const { title, author } = getBooks[i]
+    libraryBooks.innerHTML += `<p>${title}</p>
+                               <p>${author}</p>   
+                               <button data-target="${i}" class="delete-btn">Remove</button>
+                               <hr>`
   }
-}
 
-// eslint-disable-next-line  no-unused-vars
-function deleteBook(title) {
-  const books = JSON.parse(localStorage.getItem('books'));
-  for (let i = 0; i < books.length; i += 1) {
-    if (books[i].title === title) {
-      books.splice(i, 1);
-    }
+  function deleteBook(index) {
+    const books = JSON.parse(localStorage.getItem('books'))
+    const filteredBooks = books.filter((book, i) => parseInt(index, 10) !== i)
+    localStorage.setItem('books', JSON.stringify(filteredBooks))
+    fetchLibrary()
   }
-  localStorage.setItem('books', JSON.stringify(books));
-  fetchLibrary();
+
+  const deleteButtons = document.querySelectorAll('.delete-btn')
+
+  deleteButtons.forEach((button) => {
+    button.addEventListener('click', (e) => {
+      const { target } = e
+      const { dataset } = target
+      const { target: btn } = dataset
+      deleteBook(btn)
+    })
+  })
 }
 
 function saveBooks(e) {
   // form values
-  const titleName = document.getElementById('titleName').value;
-  const authorName = document.getElementById('authorName').value;
+  const titleName = document.getElementById('titleName')
+  const authorName = document.getElementById('authorName')
 
   const library = {
-    name: titleName,
-    title: authorName,
-  };
+    title: titleName.value,
+    author: authorName.value,
+  }
 
   //   local storage
 
   if (localStorage.getItem('books') === null) {
-    const books = [];
-    books.push(library);
-    localStorage.setItem('books', JSON.stringify(books));
+    const books = []
+    books.push(library)
+    localStorage.setItem('books', JSON.stringify(books))
   } else {
-    const books = JSON.parse(localStorage.getItem('books'));
-    books.push(library);
-    localStorage.setItem('books', JSON.stringify(books));
+    const books = JSON.parse(localStorage.getItem('books'))
+    books.push(library)
+    localStorage.setItem('books', JSON.stringify(books))
   }
 
-  e.preventDefault();
+  e.preventDefault()
 
-  fetchLibrary();
+  titleName.value = ''
+  authorName.value = ''
+
+  fetchLibrary()
 }
 
-document.getElementById('myForm').addEventListener('submit', saveBooks);
+document.getElementById('myForm').addEventListener('submit', saveBooks)
 
-fetchLibrary();
+fetchLibrary()
