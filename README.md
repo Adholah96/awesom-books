@@ -60,11 +60,11 @@ After you're finished please remove all the comments and instructions!
 
 <!-- PROJECT DESCRIPTION -->
 
-# 📖 CLIMATE SUMMIT <a name="about-project"></a>
+# 📖 AWESOME BOOKS<a name="about-project"></a>
 
 <!-- > Describe your project in 1 or 2 sentences. -->
 
-**climate summit** is a capstone project built purely on CSS, HTML, and Javascript for an incoming seminar. The capstone is personalized from a design template provided from Behance.
+**Awesome books** is a project built with HTML and Javascript.
 
 ## 🛠 Built With <a name="built-with"></a>
 
@@ -72,40 +72,14 @@ After you're finished please remove all the comments and instructions!
 - **CSS**
 - **JAVASCRIPT**
 
-<!-- ### Tech Stack <a name="tech-stack"></a> -->
-
-<!-- > Describe the tech stack and include only the relevant sections that apply to your project. -->
-
-<!-- <details>
-  <summary>Client</summary>
-  <ul>
-    <li><a href="https://reactjs.org/">Html, CSS</a></li>
-  </ul>
-</details> -->
-
-<!-- <details>
-  <summary>Server</summary>
-  <ul>
-    <li><a href="https://expressjs.com/">N/A</a></li>
-  </ul>
-</details> -->
-
-<!-- <details>
-<summary>Database</summary>
-  <ul>
-    <li><a href="https://www.postgresql.org/">N/A</a></li>
-  </ul>
-</details> -->
-
 <!-- Features -->
 
 ### Key Features <a name="key-features"></a>
 
 <!-- > Describe between 1-3 key features of the application. -->
 
-- **Multiple Pages**
-- **Responsiveness**
-- **Mobile Menu**
+- **Object Constructors**
+- **Local Storage**
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -115,8 +89,7 @@ After you're finished please remove all the comments and instructions!
 
 <!-- > Add a link to your deployed project. -->
 
-- [Live Demo Link](https://adholah96.github.io/climate-summit/)
-- [Video Link](https://www.loom.com/share/091dfd67fd6f422ea5949891d2340f0a)
+- [Coming soon](#)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -215,15 +188,21 @@ Example:
 - Twitter: [@nerdy*me*](https://twitter.com/nerdy_me_)
 - LinkedIn: [heldricks-arthur](https://linkedin.com/in/heldricks-arthur-59ab2411a)
 
+👤 **Yidnekachew Kassahun**
+
+- GitHub: [Yidne](https://github.com/Yidnekachew-cmd)
+- Twitter: [Yidne](https://twitter.com/Yidnekassahun)
+- LinkedIn: [Yidne](https://www.linkedin.com/in/yidnekachew-kassahun-2b817a24b/)
+
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-<!-- FUTURE FEATURES --> 
+<!-- FUTURE FEATURES -->
 
 ## 🔭 Future Features <a name="future-features"></a>
 
- <!-- Describe 1 - 3 features you will add to the project. --> 
+ <!-- Describe 1 - 3 features you will add to the project. -->
 
-- **Contact Form**
+- **Multiple pages**
 - **More Functionality**
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
