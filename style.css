@@ -1,0 +1,18 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+input {
+  margin-top: 10px;
+  margin-bottom: 10px;
+  width: 100%;
+  border: 2px solid;
+  padding: 0.4rem;
+  font-weight: bold;
+  border-radius: 5px;
+}
+.first-h1 {
+  margin-top: 2rem;
+  text-align: center;
+}
