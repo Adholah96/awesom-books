@@ -16,3 +16,45 @@ input {
   margin-top: 2rem;
   text-align: center;
 }
+
+#libraryBooks {
+  width: 70%;
+  margin: 1rem auto;
+  border: 1px solid rgb(148, 148, 148);
+  border-radius: 5px;
+}
+.books {
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  width: 100%;
+  padding: 0.5rem;
+}
+.books p {
+  flex: 1;
+}
+.books:nth-child(even) {
+  background: rgb(229, 229, 229);
+  border-radius: 5px;
+}
+form {
+  width: 40%;
+  margin: 1rem auto;
+}
+form h1 {
+  text-align: center;
+}
+button {
+  box-shadow: 3px 5px 5px black;
+  font-weight: bold;
+}
+.submit-btn {
+  float: right;
+  padding: 0 0.3rem;
+}
+.divider {
+  width: 15%;
+  height: 2px;
+  background-color: black;
+  margin: 2rem auto;
+}
