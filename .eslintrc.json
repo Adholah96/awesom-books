@@ -12,7 +12,6 @@
   "extends": ["airbnb-base"],
   "rules": {
     "no-shadow": "off",
-    "no-useless-escape": "off",
     "no-param-reassign": "off",
 
     "eol-last": "off",

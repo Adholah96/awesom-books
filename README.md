@@ -80,6 +80,7 @@ After you're finished please remove all the comments and instructions!
 
 - **Object Constructors**
 - **Local Storage**
+- **Object Oriented Programming**
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 

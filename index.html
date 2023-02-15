@@ -8,14 +8,17 @@
     <title>Document</title>
   </head>
   <body>
-    <h1>Awesome Books</h1>
-    <div id="libraryBooks"></div>
+    <h1 class="first-h1">All awesome books</h1>
+
+    <div id="libraryBooks" data-book></div>
+    <div class="divider"></div>
     <form action="#" id="myForm">
+      <h1>Add a new book</h1>
       <input type="text" placeholder="Title" id="titleName" />
       <br />
       <input type="text" placeholder="Author" id="authorName" />
       <br />
-      <button type="submit">Add</button>
+      <button type="submit" class="submit-btn">Add</button>
     </form>
 
     <script src="app.js"></script>
