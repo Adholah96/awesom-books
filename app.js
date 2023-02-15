@@ -1,66 +1,85 @@
-function fetchLibrary() {
-  const getBooks = JSON.parse(localStorage.getItem('books'))
-  const libraryBooks = document.getElementById('libraryBooks')
+const libraryBooks = document.querySelector('[data-book]')
+const titleName = document.getElementById('titleName')
+const authorName = document.getElementById('authorName')
+const form = document.getElementById('myForm')
 
-  libraryBooks.innerHTML = ''
+class Library {
+  constructor(id, author, title) {
+    this.id = id
+    this.author = author
+    this.title = title
+  }
+  //Local Storage
 
-  for (let i = 0; i < getBooks.length; i += 1) {
-    const { title, author } = getBooks[i]
-    libraryBooks.innerHTML += `<p>${title}</p>
-                               <p>${author}</p>   
-                               <button data-target="${i}" class="delete-btn">Remove</button>
-                               <hr>`
+  static addLocalStorage(libraryContainer) {
+    let storage = localStorage.setItem(
+      'books',
+      JSON.stringify(libraryContainer)
+    )
+    return storage
   }
 
-  function deleteBook(index) {
-    const books = JSON.parse(localStorage.getItem('books'))
-    const filteredBooks = books.filter((book, i) => parseInt(index, 10) !== i)
-    localStorage.setItem('books', JSON.stringify(filteredBooks))
-    fetchLibrary()
+  static getLocalStorage() {
+    let storage =
+      localStorage.getItem('books') === null
+        ? []
+        : JSON.parse(localStorage.getItem('books'))
+    return storage
   }
 
-  const deleteButtons = document.querySelectorAll('.delete-btn')
+  // display in the DOM
 
-  deleteButtons.forEach((button) => {
-    button.addEventListener('click', (e) => {
-      const { target } = e
-      const { dataset } = target
-      const { target: btn } = dataset
-      deleteBook(btn)
+  static displayBooks() {
+    let displayData = libraryContainer.map((item) => {
+      return `
+        <div class='books'>
+        <p> "${item.title}" by ${item.author} </p>   
+        <button class="delete-btn" data-id= ${item.id}>Remove</button>
+        </div>
+        `
     })
-  })
+    libraryBooks.innerHTML = displayData.join(' ')
+  }
+
+  //clear input once submited
+  static clearInput() {
+    titleName.value = ''
+    authorName.value = ''
+  }
+
+  //delete book from DOM and arraylibrary
+  static deleteBook() {
+    libraryBooks.addEventListener('click', (e) => {
+      if (e.target.classList.contains('delete-btn')) {
+        e.target.parentElement.remove()
+      }
+      let btnId = e.target.dataset.id
+      Library.removeLibraryArray(btnId)
+    })
+  }
+  static removeLibraryArray(id) {
+    libraryContainer = libraryContainer.filter((item) => item.id !== +id)
+    Library.addLocalStorage(libraryContainer)
+  }
 }
 
-function saveBooks(e) {
-  // form values
-  const titleName = document.getElementById('titleName')
-  const authorName = document.getElementById('authorName')
-
-  const library = {
-    title: titleName.value,
-    author: authorName.value,
-  }
-
-  //   local storage
-
-  if (localStorage.getItem('books') === null) {
-    const books = []
-    books.push(library)
-    localStorage.setItem('books', JSON.stringify(books))
-  } else {
-    const books = JSON.parse(localStorage.getItem('books'))
-    books.push(library)
-    localStorage.setItem('books', JSON.stringify(books))
-  }
-
+// innitialize form submit to create Library instance
+form.addEventListener('submit', (e) => {
   e.preventDefault()
+  let id = Math.floor(Math.random() * 1000)
+  const book = new Library(id, authorName.value, titleName.value)
+  libraryContainer.push(book)
+  Library.displayBooks()
+  Library.clearInput()
+  Library.deleteBook()
+  Library.addLocalStorage(libraryContainer)
+})
 
-  titleName.value = ''
-  authorName.value = ''
+window.addEventListener('DOMContentLoaded', () => {
+  Library.displayBooks()
+  Library.deleteBook()
+})
 
-  fetchLibrary()
-}
+//store values in a container referrenced by local storage
 
-document.getElementById('myForm').addEventListener('submit', saveBooks)
-
-fetchLibrary()
+let libraryContainer = Library.getLocalStorage()
