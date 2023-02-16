@@ -112,5 +112,4 @@ contact.addEventListener('click', () => {
   contactContainer.style.display = 'block';
   booksContainer.style.display = 'none';
   form.style.display = 'none';
-
 });
