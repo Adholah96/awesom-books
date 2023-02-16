@@ -2,15 +2,14 @@ const libraryBooks = document.querySelector('[data-book]');
 const titleName = document.getElementById('titleName');
 const authorName = document.getElementById('authorName');
 const form = document.getElementById('myForm');
-
 class Library {
   constructor(id, author, title) {
     this.id = id;
     this.author = author;
     this.title = title;
   }
-  // Local Storage
 
+  // Local Storage
   static addLocalStorage(libraryContainer) {
     const storage = localStorage.setItem(
       'books',
@@ -27,13 +26,12 @@ class Library {
   }
 
   // display in the DOM
-
   static displayBooks() {
     /* eslint-disable no-use-before-define */
     const displayData = libraryContainer.map(
       (item) => `
         <div class='books'>
-        <p> "${item.title}" by ${item.author} </p>   
+        <p> "${item.title}" by ${item.author} </p>
         <button class="delete-btn" data-id= ${item.id}>Remove</button>
         </div>
         `,
@@ -47,7 +45,7 @@ class Library {
     authorName.value = '';
   }
 
-  // delete book from DOM and arraylibrary
+  // delete book from DOM and arraylibrar
   static deleteBook() {
     libraryBooks.addEventListener('click', (e) => {
       if (e.target.classList.contains('delete-btn')) {
@@ -62,8 +60,12 @@ class Library {
     libraryContainer = libraryContainer.filter((item) => item.id !== +id);
     Library.addLocalStorage(libraryContainer);
   }
-}
 
+  static currentDate() {
+    const date = new Date();
+    document.getElementById('dateDisplay').innerHTML = date;
+  }
+}
 // innitialize form submit to create Library instance
 form.addEventListener('submit', (e) => {
   e.preventDefault();
@@ -75,11 +77,31 @@ form.addEventListener('submit', (e) => {
   Library.deleteBook();
   Library.addLocalStorage(libraryContainer);
 });
-
 window.addEventListener('DOMContentLoaded', () => {
   Library.displayBooks();
   Library.deleteBook();
+  Library.currentDate();
 });
-
-// store values in a container referrenced by local storage
+// store values in a container referrenced by local storag
 let libraryContainer = Library.getLocalStorage();
+// Single Page Application
+const books = document.querySelector('.listone');
+const addNew = document.querySelector('.listtwo');
+const contact = document.querySelector('.listthree');
+const booksContainer = document.getElementById('booksContainer');
+const contactContainer = document.getElementById('contact');
+books.addEventListener('click', () => {
+  booksContainer.style.display = 'block';
+  form.style.display = 'none';
+  contactContainer.style.display = 'none';
+});
+addNew.addEventListener('click', () => {
+  booksContainer.style.display = 'none';
+  form.style.display = 'block';
+  contactContainer.style.display = 'none';
+});
+contact.addEventListener('click', () => {
+  contactContainer.style.display = 'block';
+  booksContainer.style.display = 'none';
+  form.style.display = 'none';
+});
