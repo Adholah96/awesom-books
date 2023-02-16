@@ -62,6 +62,11 @@ class Library {
     libraryContainer = libraryContainer.filter((item) => item.id !== +id);
     Library.addLocalStorage(libraryContainer);
   }
+
+  static currentDate() {
+    const date = new Date();
+    document.getElementById('dateDisplay').innerHTML = date;
+  }
 }
 
 // innitialize form submit to create Library instance
@@ -79,7 +84,32 @@ form.addEventListener('submit', (e) => {
 window.addEventListener('DOMContentLoaded', () => {
   Library.displayBooks();
   Library.deleteBook();
+  Library.currentDate();
 });
 
 // store values in a container referrenced by local storage
 let libraryContainer = Library.getLocalStorage();
+
+// Single Page Applications
+const books = document.querySelector('.listone');
+const addNew = document.querySelector('.listtwo');
+const contact = document.querySelector('.listthree');
+
+const booksContainer = document.getElementById('booksContainer');
+const contactContainer = document.getElementById('contact');
+
+books.addEventListener('click', () => {
+  booksContainer.style.display = 'block';
+  form.style.display = 'none';
+  contactContainer.style.display = 'none';
+});
+addNew.addEventListener('click', () => {
+  booksContainer.style.display = 'none';
+  form.style.display = 'block';
+  contactContainer.style.display = 'none';
+});
+contact.addEventListener('click', () => {
+  contactContainer.style.display = 'block';
+  booksContainer.style.display = 'none';
+  form.style.display = 'none';
+});
