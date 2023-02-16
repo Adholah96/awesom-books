@@ -82,7 +82,7 @@ window.addEventListener('DOMContentLoaded', () => {
   Library.deleteBook();
   Library.currentDate();
 });
-// store values in a container referrenced by local storage
+// store values in a container referrenced by local storag
 let libraryContainer = Library.getLocalStorage();
 // Single Page Application
 const books = document.querySelector('.listone');
