@@ -90,7 +90,7 @@ window.addEventListener('DOMContentLoaded', () => {
 // store values in a container referrenced by local storage
 let libraryContainer = Library.getLocalStorage();
 
-// Single Page Applications
+// Single Page Application
 const books = document.querySelector('.listone');
 const addNew = document.querySelector('.listtwo');
 const contact = document.querySelector('.listthree');
@@ -112,4 +112,5 @@ contact.addEventListener('click', () => {
   contactContainer.style.display = 'block';
   booksContainer.style.display = 'none';
   form.style.display = 'none';
+
 });
