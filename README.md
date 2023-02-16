@@ -94,18 +94,16 @@ After you're finished please remove all the comments and instructions!
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-
 ## 💻 Getting Started <a name="getting-started"></a>
-
 
 ### Prerequisites
 
-In order to run this project you need: 
+In order to run this project you need:
+
 - Visual Studio Code
 - A Browser
 - Node
 - Git
-
 
 ### Setup
 
@@ -129,11 +127,10 @@ npm install
 
 ### Usage
 
-To run the project, execute the following command: 
+To run the project, execute the following command:
 
 - Open the the index.html file in the browser or
-- Install Live Server extension when using Visual code and open with Live server extension 
-
+- Install Live Server extension when using Visual code and open with Live server extension
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -163,7 +160,6 @@ To run the project, execute the following command:
 
  <!-- Describe 1 - 3 features you will add to the project. -->
 
-- **Multiple pages**
 - **More Functionality**
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
